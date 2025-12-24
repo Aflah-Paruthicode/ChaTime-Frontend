@@ -19,7 +19,7 @@ const Navbar = () => {
                 <a>Portfolio</a>
               </li>
               <li>
-                <a>About</a>
+                <a>About</a> 
               </li>
             </ul>
           </div>
