@@ -16,7 +16,7 @@ const Navbar = () => {
                 <a>Homepage</a>
               </li>
               <li>
-                <a>Portfolio</a>
+                <a>Portfolio</a> 
               </li>
               <li>
                 <a>About</a> 
