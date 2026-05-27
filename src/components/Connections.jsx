@@ -1,37 +1,34 @@
-import axios from 'axios'
-import { useEffect } from 'react'
-import { baseUrl } from '../utils/constants'
-import { useDispatch, useSelector } from 'react-redux'
-import { addConnections } from '../utils/connectionSlice'
+import axios from "axios";
+import { useEffect } from "react";
+import { baseUrl } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addConnections } from "../utils/connectionSlice";
 
 const Connections = () => {
-
-  const connections = useSelector(store => store.connections)
+  const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
 
   const fetchConnections = async () => {
     try {
-      const res = await axios.get(baseUrl + '/user/connections', { withCredentials: true });
+      const res = await axios.get(baseUrl + "/user/connections", { withCredentials: true });
       dispatch(addConnections(res?.data?.data));
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     fetchConnections();
   }, []);
 
   if (!connections) return;
-  if (connections.length == 0) return <h1 className='text-black mt-32 text-xl font-semibold text-center'>No connections found</h1>
+  if (connections.length == 0) return <h1 className="text-black mt-32 text-xl font-semibold text-center">No connections found</h1>;
 
   return (
-    <div className="w-full max-w-6xl mx-auto my-12 px-6 mt-36">  
+    <div className="w-full max-w-6xl mx-auto my-12 px-6 mt-36">
       <div className="flex items-end gap-3 mb-10">
         <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">Connections</h1>
-        <span className="mb-1.5 px-3 py-0.5 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">
-          {connections.length} Total
-        </span>
+        <span className="mb-1.5 px-3 py-0.5 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">{connections.length} Total</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -57,19 +54,13 @@ const Connections = () => {
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
                   {connection.gender} • {connection.age} Years
                 </p>
-                <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed italic">
-                  "{connection.about || 'No bio available'}"
-                </p>
+                <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed italic">"{connection.about || "No bio available"}"</p>
               </div>
             </div>
 
             <div className="mt-5 pt-4 border-t border-slate-50 flex justify-between items-center">
-              <button className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors">
-                Message
-              </button>
-              <button className="text-xs font-bold text-slate-300 hover:text-red-400 transition-colors">
-                Remove
-              </button>
+              <button className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors">Message</button>
+              <button className="text-xs font-bold text-slate-300 hover:text-red-400 transition-colors">Remove</button>
             </div>
           </div>
         ))}
@@ -79,7 +70,12 @@ const Connections = () => {
         <div className="flex flex-col items-center justify-center py-20 bg-white/50 backdrop-blur-sm rounded-3xl border border-dashed border-slate-200">
           <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+              />
             </svg>
           </div>
           <h3 className="text-lg font-bold text-slate-800">No connections yet</h3>
@@ -87,7 +83,7 @@ const Connections = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Connections
+export default Connections;
