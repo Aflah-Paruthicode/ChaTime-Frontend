@@ -1,4 +1,4 @@
-# Meetup, Client side  
+# Talksyo, Client side  
 
 *this is the frontend of a decoupled social networking app designed for seamless user discovery and interaction.*
 

@@ -30,7 +30,7 @@ const Login = () => {
     
     <div className="flex flex-col items-center mb-10">
       <h1 className="text-2xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-500">
-        Meet Up
+        Talksyo
       </h1>
     </div>
 
