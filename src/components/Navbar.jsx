@@ -27,11 +27,11 @@ const Navbar = () => {
 
 
   return (
-    <div className="absolute top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md">
+    <div className="absolute top-0 z-50 w-full border-b border-slate-200/50 bg-white backdrop-blur-md p-3">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 overflow-hidden">
           <Link to="/">
-            <img className="h-8 w-auto object-contain brightness-110" src={LOGO} alt="logo" />
+            <img className="h-16 w-20 object-cover scale-150 brightness-110" src={LOGO} alt="logo" />
           </Link>
         </div>
 
