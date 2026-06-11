@@ -17,14 +17,12 @@ const Navbar = () => {
       await axios.post(baseUrl + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
       dispatch(removeFeed());
-      dispatch(removeConnections())
+      dispatch(removeConnections());
       return navigate("/login");
     } catch (err) {
       console.error(err);
     }
   };
-
-
 
   return (
     <div className="absolute top-0 z-50 w-full border-b border-slate-200/50 bg-white backdrop-blur-md p-3">
@@ -43,15 +41,9 @@ const Navbar = () => {
                 role="button"
                 className="flex items-center gap-3 pl-3 pr-1 py-1 rounded-full border border-slate-200 hover:border-blue-400/50 hover:bg-white transition-all duration-300 shadow-sm group"
               >
-                <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">
-                  {user.firstName + " " + user.lastName}
-                </span>
+                <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">{user.firstName + " " + user.lastName}</span>
                 <div className="h-8 w-8 rounded-full ring-2 ring-slate-50 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={user.photoUrl}
-                    alt="profile"
-                  />
+                  <img className="h-full w-full object-cover" src={user.photoUrl} alt="profile" />
                 </div>
               </div>
 
@@ -59,31 +51,44 @@ const Navbar = () => {
                 tabIndex={0}
                 className="dropdown-content mt-4 z-1 menu p-2 shadow-2xl bg-white border border-slate-100 rounded-2xl w-52 overflow-hidden animate-in fade-in slide-in-from-top-2"
               >
-                <li className="menu-title text-[10px] uppercase tracking-widest text-slate-400 font-bold px-4 py-2">
-                  Account
-                </li>
+                <li className="menu-title text-[10px] uppercase tracking-widest text-slate-400 font-bold px-4 py-2">Account</li>
                 <li>
-                  <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                  <Link
+                    to="/"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all"
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/profile" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                  <Link
+                    to="/profile"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all"
+                  >
                     Profile
                   </Link>
                 </li>
                 <li>
-                  <Link to="/requests" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                  <Link
+                    to="/requests"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all"
+                  >
                     Requests
                   </Link>
                 </li>
                 <li>
-                  <Link to="/connections" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                  <Link
+                    to="/connections"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all"
+                  >
                     Connections
                   </Link>
                 </li>
                 <li>
-                  <Link to="/premium" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                  <Link
+                    to="/premium"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all"
+                  >
                     Premium
                   </Link>
                 </li>
@@ -103,7 +108,10 @@ const Navbar = () => {
               <Link to="/login" className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors">
                 Login
               </Link>
-              <Link to={'signup'} className="px-5 py-2.5 bg-slate-900 text-white rounded-full font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 transition-all">
+              <Link
+                to={"signup"}
+                className="px-5 py-2.5 bg-slate-900 text-white rounded-full font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 transition-all"
+              >
                 Join Now
               </Link>
             </div>

@@ -6,26 +6,26 @@ const Premium = () => {
   const handleBuyPremium = async (type) => {
     const order = await axios.post(baseUrl + "/payment/create", { membershipType: type }, { withCredentials: true });
 
-    const {keyId,amount,currency,orderId,notes} = order.data;
+    const { keyId, amount, currency, orderId, notes } = order.data;
 
     const options = {
-        key: keyId,
-        amount: amount,
-        currency: currency,
-        name: 'Talksyo',
-        description: 'Connect with people from the whole world',
-        order_id: orderId, 
-        prefill: {
-          name: notes.firstName +' '+ notes.lastName,
-          membershipType: notes.membershipType,
-        },
-        theme: {
-          color: '#155dfc'
-        },
-      };
+      key: keyId,
+      amount: amount,
+      currency: currency,
+      name: "Talksyo",
+      description: "Connect with people from the whole world",
+      order_id: orderId,
+      prefill: {
+        name: notes.firstName + " " + notes.lastName,
+        membershipType: notes.membershipType,
+      },
+      theme: {
+        color: "#155dfc",
+      },
+    };
 
-      const rzp = new window.Razorpay(options);
-      rzp.open();
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
@@ -39,7 +39,9 @@ const Premium = () => {
             <li> - Blue tick</li>
             <li> - 3 Months</li>
           </ul>
-          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium('silver')}>Buy Silver</button>
+          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium("silver")}>
+            Buy Silver
+          </button>
         </div>
         <div class="$$divider lg:$$divider-horizontal">OR</div>
         <div class="$$card bg-white border border-white/10 shadow-2xl rounded-box grid h-80 grow p-8 place-items-center hover:border-blue-500/50 transition-all duration-300 group">
@@ -50,7 +52,9 @@ const Premium = () => {
             <li> - Blue tick</li>
             <li> - 6 Months</li>
           </ul>
-          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium('gold')}>Buy Gold</button>
+          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium("gold")}>
+            Buy Gold
+          </button>
         </div>
         <div class="$$divider lg:$$divider-horizontal">OR</div>
         <div class="$$card bg-white border border-white/10 shadow-2xl rounded-box grid h-80 grow p-8 place-items-center hover:border-blue-500/50 transition-all duration-300 group">
@@ -61,7 +65,9 @@ const Premium = () => {
             <li> - Gold tick</li>
             <li> - 6 Months</li>
           </ul>
-          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium('diamond')}>Buy Diamond</button>
+          <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium("diamond")}>
+            Buy Diamond
+          </button>
         </div>
       </div>
     </div>

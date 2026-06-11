@@ -11,7 +11,7 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
 
-  const fetchUser = async () => {  
+  const fetchUser = async () => {
     try {
       const res = await axios.get(baseUrl + "/profile/view", { withCredentials: true });
       dipatch(addUser(res.data));
@@ -27,16 +27,16 @@ const Body = () => {
 
   return (
     <div className="relative min-h-screen w-full bg-white overflow-hidden">
-  <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/80 blur-[120px]" />
-  <div className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] rounded-full bg-indigo-100/70 blur-[120px]" />
+      <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/80 blur-[120px]" />
+      <div className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] rounded-full bg-indigo-100/70 blur-[120px]" />
 
-  <div className="relative z-10 flex flex-col min-h-screen">
-    <Navbar />
-    <main className="grow">
-      <Outlet />
-    </main>
-  </div>
-</div>
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="grow">
+          <Outlet />
+        </main>
+      </div>
+    </div>
   );
 };
 

@@ -20,25 +20,28 @@ const Editprofile = ({ user }) => {
   const saveprofile = async () => {
     try {
       const res = await axios.post(baseUrl + "/profile/edit", { firstName, lastName, photoUrl, age, gender, skills, about }, { withCredentials: true });
-      dispatch(addUser(res?.data?.data))
+      dispatch(addUser(res?.data?.data));
       setShowToast(true);
       setTimeout(() => {
-        setShowToast(false)
-      },3000)
+        setShowToast(false);
+      }, 3000);
     } catch (err) {
       setShowToast(false);
       setError(err?.response?.data);
-      console.log(err)
+      console.log(err);
     }
   };
- 
-  const [inputSkills, setInputSkills] = useState(user.skills.join(','));
+
+  const [inputSkills, setInputSkills] = useState(user.skills.join(","));
   const saveSkills = (e) => {
     const val = e.target.value;
     setInputSkills(val);
-    let newSkills = val.split(',').map(s => s.trim()).filter(s => s !== '');
+    let newSkills = val
+      .split(",")
+      .map((s) => s.trim())
+      .filter((s) => s !== "");
     setSkills(newSkills);
-  }
+  };
 
   return (
     <div className="flex justify-center gap-8 my-8 mt-32">
@@ -60,27 +63,31 @@ const Editprofile = ({ user }) => {
         <input type="number" className="input bg-gray-200 text-gray-600" name="age" onChange={(e) => setAge(e.target.value)} value={age} />
 
         <label className="label text-gray-600">Gender : </label>
-      <select value={gender} onChange={(e) => setGender(e.target.value)} className="select bg-gray-200 text-gray-600">
-        <option value="male">male</option>
-        <option value="female">female</option>
-      </select>
-      <p className="label text-gray-600">Selected: {gender}</p>
+        <select value={gender} onChange={(e) => setGender(e.target.value)} className="select bg-gray-200 text-gray-600">
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+        <p className="label text-gray-600">Selected: {gender}</p>
 
         <label className="label text-gray-600">About : </label>
         <textarea className="textarea bg-gray-200 text-gray-600" placeholder="about..." onChange={(e) => setAbout(e.target.value)} value={about}></textarea>
 
         <label className="label text-gray-600">Skills : </label>
-          <input  type="text" className="input bg-gray-200 text-gray-600" name="skill" onChange={saveSkills} value={inputSkills} />
+        <input type="text" className="input bg-gray-200 text-gray-600" name="skill" onChange={saveSkills} value={inputSkills} />
 
         <p className="text-red-400">{error}</p>
-        <button className="btn btn-neutral mt-4" onClick={saveprofile}>Save Changes</button>
+        <button className="btn btn-neutral mt-4" onClick={saveprofile}>
+          Save Changes
+        </button>
       </fieldset>
 
-      {showToast && <div className="toast toast-top toast-center z-9999">
-        <div className="alert alert-success"> 
-          <span>Message sent successfully.</span>
+      {showToast && (
+        <div className="toast toast-top toast-center z-9999">
+          <div className="alert alert-success">
+            <span>Message sent successfully.</span>
+          </div>
         </div>
-      </div>}
+      )}
     </div>
   );
 };
