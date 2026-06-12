@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const profile = () => {
   const user = useSelector((store) => store.user);
-  return <div> {user && <Editprofile user={user} />} </div>;
+  return <div> {user && <Editprofile user={user} />}  </div>;
 };
 
 export default profile;
