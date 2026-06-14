@@ -50,7 +50,7 @@ const Premium = () => {
             <li> - Chat with other people</li>
             <li> - 300 Connection requests per day</li>
             <li> - Blue tick</li>
-            <li> - 6 Months</li>
+            <li> - 6 Months</li> 
           </ul>
           <button className="btn justify-self-end border-none hover:bg-blue-500" onClick={() => handleBuyPremium("gold")}>
             Buy Gold
